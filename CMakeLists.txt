@@ -49,13 +49,16 @@ option(gRPC_BUILD_CODEGEN "Build codegen" ON)
 option(gRPC_BUILD_CSHARP_EXT "Build C# extensions" ON)
 option(gRPC_BACKWARDS_COMPATIBILITY_MODE "Build libraries that are binary compatible across a larger number of OS and libc versions" OFF)
 
-set(gRPC_INSTALL_default ON)
+set(gRPC_INSTALL_default OFF)
 if(NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
   # Disable gRPC_INSTALL by default if building as a submodule
   set(gRPC_INSTALL_default OFF)
 endif()
 set(gRPC_INSTALL ${gRPC_INSTALL_default} CACHE BOOL
     "Generate installation target")
+
+set(gRPC_INSTALL OFF)
+message("gRPC_INSTALL:${gRPC_INSTALL}")
 
 # We can install dependencies from submodules if we're running
 # CMake v3.13 or newer.
